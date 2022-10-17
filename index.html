@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <div class="container">
+        <div class="controls">
+            <div class="title">Controls</div>
+            <span>Number of runs</span><input type="number" class="number-of-runs"></input>
+            <span>Hit strength</span><input type="number" class="hit-strength"></input>
+            <span>Advantage</span><input type="checkbox" class="advantage"></input>
+            <span>Disadvantage</span><input type="checkbox" class="disadvantage"></input>
+            <button class="btn-calculate">Calculate</button>
+        </div>
+
+        <div class="results">
+            <div><span>Mean</span> <span class="mean"></span></div>
+            <div><span>Median</span> <span class="median"></span></div>
+            <div><span>Missed</span> <span class="missed"></span></div>
+            <div><span>Doubled</span> <span class="doubled"></span></div>
+            <div><div></div></div>
+        </div>
+
+        <textarea class="cards" rows="5" cols="55"></textarea>
+    </div>
+    
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
