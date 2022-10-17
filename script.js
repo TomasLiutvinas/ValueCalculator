@@ -12,11 +12,11 @@ function getValue(card, strength){
     } else if (card === 'x2') {
         return strength * 2;
     } else {
-        return card + strength
+        return parseInt(card) + strength
     }
 }
 
-function calculateRoll(roll, hitStrength, resultObj){
+function calculateRoll(roll, hitStrength, resultObj, chance){
     if (roll === 'miss') {
         resultObj.missCount++;
         resultObj.hits.push(0);
@@ -80,10 +80,14 @@ function calculateRoll(roll, hitStrength, resultObj){
                     
                     let roll;
                     
-                    if(getValue(card1) > getValue(card2)){
+                    if (getValue(card1, hitStrength) > getValue(card2, hitStrength)){
                         roll = card1;
                     }else{
-                        roll = card2;
+                        if (card2 !== 'miss') {
+                            roll = card2; 
+                        }else{
+                            roll = card1;
+                        }
                     }
                     
                     resultObj = calculateRoll(roll, hitStrength, resultObj);
@@ -97,10 +101,14 @@ function calculateRoll(roll, hitStrength, resultObj){
                     
                     let roll;
                     
-                    if (getValue(card1) < getValue(card2)) {
+                    if (getValue(card1, hitStrength) < getValue(card2, hitStrength)) {
                         roll = card1;
                     } else {
-                        roll = card2;
+                        if (card2 !== 'miss'){
+                            roll = card2;
+                        }else{
+                            roll = card1;
+                        }
                     }
 
                     resultObj = calculateRoll(roll, hitStrength, resultObj);
